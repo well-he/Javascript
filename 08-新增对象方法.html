@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var obj = {
+      name: 'aaa',
+      age: 18,
+      sex: '男'
+    }
+
+    var arr = Object.keys(obj);
+    //["name", "age", "sex"] 对象名属性名组成的数组
+    obj.height = 180
+    //console.log(obj); //{name: "aaa", age: 18, sex: "男", h: 180}
+
+    // Object.defineProperty()
+    // 用处1.定义新属性或修改原有的属性
+    //     2.设置属性是否被修改
+    // 参数说明
+    // obj 要修改的对象
+    // prop 要修改的属性值
+    // descriptor说明
+    //  value-> 设置属性的值
+    //  writable->prop属性是否可以重写 默认为false
+    //  enumerate->目标属性是否可以被枚举 默认为falese
+    //  configurable->目标属性是否可以被删除 或者是否可以再次修改特性 默认为false
+    Object.defineProperty(obj, 'weight', {
+      value: 50
+      // writable
+      // Enumerator
+      // configurable
+    })
+    //console.info(obj); //{name: "aaa", age: 18, sex: "男", height: 180, weight: 50}
+    Object.defineProperty(obj, 'name', {
+      writable: false //不允许这个修改属性值
+    })
+    obj.name = 2;
+    //console.log(obj);
+
+    Object.defineProperty(obj, 'addr', {
+      value: '蓝翔技校',
+      enumerable: false,
+      configurable: false
+    })
+    //addr 不允许再次修改
+    //console.log(Object.keys(obj)); 
+    // (4) ["name", "age", "sex", "height"] 拿不到weight是因为默认为false
+    Object.defineProperty(obj, 'age', {
+      configurable: true
+    })
+    delete obj.age
+    console.log(obj);
+    //{name: "aaa", sex: "男", height: 180, weight: 50, addr: "蓝翔技校"}
+  </script>
+</body>
+
+</html>

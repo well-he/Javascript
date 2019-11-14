@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    //1.call()
+    var o = {
+      name: 'andy'
+    }
+
+    function fn(a, b) {
+      return a + b;
+    }
+    fn.call(o, 1, 2); //原本指向为window 现在为o
+    //call()主要作用可以实现继承
+    // function Father(uname, age) {
+    //   this.uname = uname;
+    //   this.age = age;
+    // }
+    // function Son(uname, age, sex) {
+    //   Father.call(this, uname, age);
+    //   this.sex = sex;
+    // }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>查询商品案例</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    input {
+      width: 80px;
+    }
+
+    .c {
+      width: 700px;
+      margin: 0 auto;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      border: 1px solid black;
+    }
+
+    tr,
+    td {
+      width: 100px;
+      border: 1px solid black;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="c">
+    <span>按照价格查询:</span>
+    <input type="text" id="low">- <input type="text" id="high">
+    <button id="search">搜索</button>
+    <span>按照商品名称查询:</span>
+    <input type="text" id="byname">
+    <button id="query">查询</button>
+  </p>
+  <table>
+    <thead>
+      <td>编号</td>
+      <td>产品名称</td>
+      <td>价格</td>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    const opt = {
+      tb: document.querySelector('tbody'),
+      search: document.querySelector('#search'),
+      lowPrice: document.querySelector('#low'),
+      highPrice: document.querySelector('#high'),
+      byName: document.querySelector('#byname'),
+      query: document.querySelector('#query')
+    }
+    let data = [{
+      id: 1,
+      name: "小米手机",
+      price: 2499
+    }, {
+      id: 2,
+      name: '华为手机',
+      price: 2999
+    }, {
+      id: 3,
+      name: 'iphone',
+      price: 6888
+    }, {
+      id: 4,
+      name: 'Vivo',
+      price: 1999
+    }];
+    setData(data);
+    let newdata = [];
+    opt.search.addEventListener('click', function () {
+      newdata = data.filter(item => item.price > opt.lowPrice.value && item.price < opt.highPrice.value)
+      setData(newdata);
+    })
+    opt.query.addEventListener('click', function () {
+      newdata = [];
+      data.some(item => {
+        if (item.name === opt.byName.value) {
+          newdata.push(item);
+          return true;
+        }
+      });
+      setData(newdata);
+    })
+
+    function setData(data) {
+      opt.tb.innerHTML = '';
+      data.forEach(item => {
+        let str = ` <tr>
+          <td>${item['id']}</td>
+          <td>${item['name']}</td>
+          <td>${item['price']}</td>
+        </tr>`;
+        opt.tb.insertAdjacentHTML('beforeend', str);
+      })
+    }
+  </script>
+</body>
+
+</html>

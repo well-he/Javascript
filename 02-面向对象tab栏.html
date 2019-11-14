@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>面向对象tab栏</title>
+  <link rel="stylesheet" href="./css/02.css">
+</head>
+
+<body>
+  <div class="tabsbox" id="tab">
+    <nav class="firstnav">
+      <ul>
+        <li class="liactive">
+          <span contenteditable="true">测试1</span>
+          <!-- contenteditable="true" -->
+          <span class="close"></span></li>
+        <li>
+          <span contenteditable="true" max-length=5>测试2</span>
+          <span class="close"></span></li>
+        <li>
+          <span contenteditable="true">测试3</span>
+          <span class="close"></span></li>
+      </ul>
+      <div class="tabadd">+</div>
+    </nav>
+
+    <div class="tabscon">
+      <section class="conactive" contenteditable="true">1</section>
+      <section contenteditable="true">2</section>
+      <section contenteditable="true">3</section>
+    </div>
+  </div>
+
+  <script src="./js/02.js"></script>
+</body>
+
+</html>
+<!-- 功能需求
+  1.点击tab栏，可以切换效果
+  2.点击+号，可以添加tab项个内容项
+  3.点击x号，可以删除当前的tab项和内容项
+  4.双击tab项文字或者内容项文字，可以修改里边的文字内容
+-->

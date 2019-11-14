@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    function Star(uname, age) {
+      this.uname = uname;
+      this.age = age;
+    }
+    // Star.prototype.sing = function (uname) {
+    // console.log(uname + '会唱歌');
+    // }
+    // Star.prototype.song = function () {
+    // console.log('我会跳舞');
+    // }
+    //有时候需要手动利用constructor 指向原来的构造函数
+    Star.prototype = {
+      constructor: Star,
+      sing() {
+        console.log('我会唱歌');
+      },
+      song() {
+        console.log('我会跳舞');
+      } //这样写就会覆盖原本的prototype 需要重新指回
+    }
+    console.log(Star.prototype);
+
+    //实例成员就是ldh这个对象可以访问到的
+    var ldh = new Star('刘德华', 50);
+    //sex是静态成员只能通过ldh这个对象才能访问
+    ldh.sex = '男';
+
+    var lh = new Star('刘欢', 55);
+    //lh这个对象访问不到sex
+
+    console.log(lh.sing === ldh.sing); //true
+    //实例化成员的__proto__===Object的prototype
+    console.log(ldh.__proto__ == Star.prototype); //true
+
+    //原型对象函数里边的this指向的时实例对象，
+
+    //方法的查找规则:先找实例化成员本身是否含有这个方法，有就执行
+    //没有就去原型对象prototype里找 （因为有__proto__的存在）
+
+    // ldh.__proto__.sing(ldh.uname);
+    // Star构造函数
+  </script>
+</body>
+
+</html>

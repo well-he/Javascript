@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    //以下方法都
+    // 不会对空数组进行检测。
+    // 不会改变原始数组。
+
+    arr.forEach((item, index, array) => {
+      //item 数组元素
+      //index 数组索引号
+      //array 数组本身
+      console.log(index + ':' + item);
+    })
+    // map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。
+    // map() 方法按照原始数组元素顺序依次处理元素。
+    arr.map((item, index, array) => item * 2) //[2, 4, 6, 8, 10, 12, 14, 16, 18]
+    //Array.filter 筛选数组 
+    //返回值是Array==满足条件的数组
+    var newarr = arr.filter((item, index, array) => item % 2 === 0)
+    console.log(newarr); //(4) [2, 4, 6, 8]
+
+    //Array.some 用于检测数组中的元素是否满足指定条件 
+    //（ 查找数组中是否有满足条件的元素） 
+    //返回值为bool
+    //只要有满足条件的值就break 不继续判断之后的元素
+    var f = arr.some((item, inedx, array) => item > 5)
+    console.log(f); //true
+    var color = ['pink', 'red', 'blue'];
+    console.log(color.some((item) => item === 'red'));
+
+    // every() 方法用于检测数组所有元素是否都符合指定条件（ 通过函数提供）
+    // every() 方法使用指定函数检测数组中的所有元素：
+    // 如果数组中检测到有一个元素不满足， 则整个表达式返回 false，
+    // 且剩余的元素不会再进行检测。
+    // 如果所有元素都满足条件， 则返回 true。
+    color.every((item) => item === 'red') //false
+    color.every((item) => item != 'green') //true
+  </script>
+</body>
+
+</html>

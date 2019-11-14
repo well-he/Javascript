@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <img src="./this.png">
+  <script>
+    //函数的类型
+
+    // 1.普通函数
+    function fn() {
+      console.log(123);
+    }
+    //fn() fn.call()
+    //this -> window
+    // 2.对象的方法
+    var o = {
+      say() {
+        console.log(123);
+      }
+    }
+    //o.say()
+    //this -> o
+    // 3.构造函数
+    function Star() {};
+    Star.prototype.sing = function () {};
+    //var s= new Star();
+    // this ->s 原型对象里边的this 指向的也是实例对象
+    // 4.绑定事件函数
+    // btn.onclick=function(){}
+    //this -> btn 绑定者
+    // 5.定时器函数
+    // var timer =window.setInterval(function(),time)
+    //this -> window 
+    // 6.立即执行函数
+    // (function(){})() (function(){}())
+    //this -> window
+
+    //可以通过call apply bind 改变this 指向
+  </script>
+</body>
+
+</html>

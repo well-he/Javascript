@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    function Father(uname, age) {
+      this.uname = uname;
+      this.age = age;
+    }
+    Father.prototype.say = function () {
+      console.log(this.uname, this.age);
+    }
+
+    function Son(uname, age, sex) {
+      Father.call(this, uname, age);
+      this.sex = sex;
+    }
+    // Son.prototype = Father.prototype;直接赋值不对 修改子原型对象，父的也会修改
+    Son.prototype = new Father();
+    //利用对象的形式修改了原型对象，要手动指回
+    Son.prototype.constructor = Son;
+    Son.prototype.exam = function () {
+      console.log('小孩要考试');
+    }
+
+    var son = new Son('hhh', 20, 'nv');
+    console.log(son);
+    console.log(Father.prototype);
+  </script>
+</body>
+
+</html>

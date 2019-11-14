@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  list-style: none;
+  float: left;
+}
+
+.tabsbox {
+  width: 800px;
+  height: 400px;
+  margin: 100px auto;
+  border: 1px solid #000;
+}
+
+.firstnav {
+  height: 50px;
+  border-bottom: 1px solid #000;
+}
+
+.firstnav ul {
+  float: left;
+}
+
+.firstnav li {
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 50px;
+  border-right: 1px solid #000;
+  border-bottom: none;
+  text-align: center;
+  line-height: 50px;
+}
+
+.liactive {
+  border-bottom: 1px solid #fff !important;
+}
+
+.firstnav li .close {
+  background-color: #000;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-bottom-left-radius: 45px;
+  cursor: pointer;
+}
+
+.firstnav li .close::after {
+  display: block;
+  height: 10px;
+  color: #fff;
+  content: 'x';
+  position: absolute;
+  top: -131%;
+  left: 40%;
+  z-index: 99;
+}
+
+.firstnav .tabadd {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #e0e;
+  margin: 10px 10px;
+  float: right;
+  text-align: center;
+  line-height: 25px;
+  cursor: pointer;
+}
+
+.tabscon {
+  height: 351px;
+}
+
+.tabscon section {
+  height: 100%;
+  padding: 20px 20px;
+  display: none;
+  box-sizing: border-box;
+}
+
+.conactive {
+  display: block !important;
+}

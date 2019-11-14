@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    class obj {
+      constructor(uname, age) { //构造函数
+        this.uname = uname;
+        this.age = age
+      }
+      sing() {
+        console.log();
+      }
+    };
+    JSON.stringify
+    class newobj extends obj {
+      constructor(uname, age, height) {
+        super(uname, age)//必须在子类this指向之前调用
+        this.height = height;
+      }
+    }
+    //调用要用new
+    //
+    let o = new newobj('zz', 18, 52);
+    o.sing(1,2,3)
+
+    //继承中方法调用为就近原则
+  </script>
+</body>
+
+</html>

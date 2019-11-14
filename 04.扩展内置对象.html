@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    Array.prototype.sum = function () {
+      var sum = 0;
+      for (var i = 0; i < this.length; i++) {
+        sum += this[i];
+      }
+      return sum;
+    }
+    Array.prototype.getEven = function () {
+      var newarr = [];
+      for (var i = 0; i < this.length; i++) {
+        if (this[i] % 2 == 0) {
+          newarr.push(this[i]);
+        }
+      }
+      return newarr;
+    }
+ 
+    var arr=[1,2,3,4,5,6,7,8,9,10];
+    console.log(arr.sum());
+    console.log(arr.getEven())
+ </script>
+</body>
+
+</html>

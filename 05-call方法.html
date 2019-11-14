@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    function show(x,y) {
+      console.log(111);
+      console.log(this);
+      console.log(x+y);
+      
+    }
+    var o = {
+      name : 'hhh'
+    }
+    //call可以调用函数
+    // show.call();
+    //可以改变this指向  
+    show.call(o,1,2);
+  </script>
+</body>
+
+</html>

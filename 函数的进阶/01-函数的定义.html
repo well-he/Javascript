@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //函数的定义方式
+    //命名函数（自定义函数）
+    function fn1() {};
+    // 匿名函数 （函数表达式）
+    const fn2 = function () {};
+    //利用 new Function(...args,'函数体') 效率低
+    //函数都是Function对象的实例
+    const f3 = new Function('a', 'b', 'console.log(a+b)')
+    console.dir(fn1);
+    /*
+         ƒ fn1()
+         arguments: null
+         caller: null
+         length: 0
+         name: "fn1"
+         prototype: {constructor: ƒ}
+         __proto__: ƒ ()
+    */
+
+    console.dir(f3 instanceof Function) //true
+  </script>
+
+</body>
+
+</html>
